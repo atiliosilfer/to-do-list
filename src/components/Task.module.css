@@ -1,0 +1,111 @@
+.taskContainer {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.75rem 0;
+
+  background-color: var(--gray-500);
+  
+  border: 1px solid var(--gray-400);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.taskContainer button {
+  background-color: transparent;
+  border: none;
+  padding: 5px 5px 2px 5px;
+  color: var(--gray-300);
+}
+
+.taskContainer button:hover {
+  background-color: var(--gray-400);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: var(--danger);
+}
+
+.taskSpan {
+  width: 100%;
+}
+
+.descriptionTask{
+  color: var(--gray-100)
+}
+
+.descriptionTaskCompleted{
+  text-decoration: line-through;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.875rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.125rem;
+  width: 1.125rem;
+  background-color: var(--gray-500);
+  border-radius: 15px;
+  border: 2px solid var(--blue);
+}
+
+.container:hover input ~ .checkmark {
+  background-color: var(--blue-dark-opacity);
+  border: 2px solid var(--blue-dark);
+}
+
+.container input:checked ~ .checkmark {
+  background-color: var(--purple-dark);
+  border: 2px solid var(--purple-dark);
+}
+
+.container input:checked:hover ~ .checkmark {
+  background-color: var(--purple);
+  border: 2px solid var(--purple);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 0.125rem;
+  top: 0.125rem;
+  width: 0.438rem;
+  height: 0.313rem;
+  border: solid white;
+  border-width: 0.125rem 0.125rem 0 0;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}

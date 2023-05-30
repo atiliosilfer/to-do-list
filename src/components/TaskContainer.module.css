@@ -1,0 +1,76 @@
+.form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1.688rem;
+  margin-bottom: 4rem;
+}
+
+.form textarea {
+  padding: 1rem;
+  background-color: var(--gray-500);
+  color: var(--gray-100);
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  height: 3.375rem;
+  resize: none;
+  width: 100%;
+}
+
+.form button {
+  cursor: pointer;
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem;
+  border: none;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.form button:hover {
+  background-color: var(--blue);
+  color: var(--gray-100);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+}
+
+.container {
+  grid-template-columns: 1fr;
+  width: 50%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header span{
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  background: var(--gray-400);
+}
+
+.createdTaskText{
+  color: var(--blue);
+}
+
+.concludedTaskText {
+  color: var(--purple);
+}
+
