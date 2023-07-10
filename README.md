@@ -2,6 +2,8 @@
 
 Esse é um projeto de estudos, desenvolvido totalmente do zero a partir de um projeto figma disponibilizado no curso de ReactJS da Rocketseat
 
+link: https://to-do-list-atiliosilfer.vercel.app/
+
 ### Conceitos estudados durante esse projeto:
 - Conceitos básicos do React
 - CSS modules
