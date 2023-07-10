@@ -8,11 +8,13 @@ export interface TaskType {
 	id: number;
 	description: string;
 	completed: boolean;
+	deletedAt?: Date;
 }
 
 export function TaskContainer() {
 	const [tasks, setTasks] = useState<TaskType[]>([]);
 	const [newTaskDescription, setNewTaskDescription] = useState('');
+	const activeTasks = tasks.filter(task => task.deletedAt === undefined)
 
 	function handleCreateNewTask(event: FormEvent) {
 		event.preventDefault();
@@ -29,9 +31,16 @@ export function TaskContainer() {
 	}
 
 	function handleDeleteTask(id: number) {
-		const tasksNotDeleted = tasks.filter((task) => task.id !== id);
+		const deletedTask = tasks.map((task) =>
+			task.id === id
+				? {
+						...task,
+						deletedAt: new Date(),
+					}
+				: task
+		);
 
-		setTasks(tasksNotDeleted);
+		setTasks(deletedTask);
 	}
 
 	function handleToggleTaskCompletion(id: number) {
@@ -40,7 +49,7 @@ export function TaskContainer() {
 				? {
 						...task,
 						completed: !task.completed,
-				  }
+					}
 				: task
 		);
 
@@ -49,11 +58,11 @@ export function TaskContainer() {
 
 	const isNewTaskDescription = newTaskDescription.length == 0;
 
-	const isTasksEmpty = tasks.length == 0;
+	const isTasksEmpty = activeTasks.length == 0;
 
-	const tasksAmount = tasks.length;
+	const tasksAmount = activeTasks.length;
 
-	const completedTasksAmount = tasks.filter((task) => task.completed).length;
+	const completedTasksAmount = activeTasks.filter((task) => task.completed).length;
 
 	return (
 		<>
@@ -91,7 +100,7 @@ export function TaskContainer() {
 				<TaskEmpty />
 			) : (
 				<>
-					{tasks.map((task) => (
+					{activeTasks.map((task) => (
 						<Task
 							key={task.id}
 							task={task}
